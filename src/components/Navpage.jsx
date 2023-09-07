@@ -25,8 +25,11 @@ export default function Navpage() {
   path = path.replace("/","");
   path = capitaliseFirstLetter(path);
 
-  // It was easier for me to have a seperate category array
-const categories = recipes.map((text) => (text.fields.category));
+  // It was easier for me to have a seperate category array. 
+  // I needed to recreate the array so that only original values showed.
+  // Otherwise, we'd have an array of multiple 'Main' or 'Starter'
+const orgCategories = recipes.map((text) => (text.fields.category));
+const categories = [...new Set(orgCategories)];
 
   // It was also easier for me to define three seperate arrays by courses: starter, main, dessert. 
   //Otherwise, when you click on either starters, main or desserts, all items will show.
@@ -36,29 +39,29 @@ const dessertArray = recipes.filter((course) => course.fields.category.includes(
 
 // ready to use API data
 console.log(recipes)
-
+console.log(categories);
 return (
       <>
-      <h1>This is the {path.replace("/","")} Page</h1>
-
+      <h1 style={{textAlign: "center"}}>{path.replace("/","")} Page</h1>
+      <div className="navPage-Container" style={{display: "flex", justifyContent: "space-evenly"}}>
       {/* Below I've created a ternary statement per category. I'm saying if the path (e.g. /main) matches the corresponding value in the category array (e.g. category[0]) then map that specific array (e.g. mainArray). 
       Through this method, only the main course dishes will show for the /main, only the starter course dishes will show for /starter ect..*/}
-
-      {path === categories[0] ? mainArray.map((text, index) =>
+      {path === categories[0] ? starterArray.map((text, index) =>
       <div key={index}>  
-      <img style={{borderStyle: "solid", padding: "20px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/>
+      <img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
-      {path === categories[1] ? starterArray.map((text, index) =>
+      {path === categories[1] ? dessertArray.map((text, index) =>
       <div key={index}>  
-      <img style={{borderStyle: "solid", padding: "20px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/>
+      <img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
-      {path === categories[2] ? dessertArray.map((text, index) =>
+      {path === categories[2] ? mainArray.map((text, index) =>
       <div key={index}>  
-      <img style={{borderStyle: "solid", padding: "20px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/>
+      <img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
+      </div>
       </>
     )
 }
