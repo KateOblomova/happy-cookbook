@@ -6,7 +6,7 @@ export default function Navpage() {
   const [recipes, setRecipes] = useState([]);
   const client = createClient({
     space: "5khedyskutxx",
-    accessToken: "drP2KFtXqZwASAlenERw-DaI8QFD9cSD8IMmQYQkuMM",
+    accessToken:`${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`,
   });
   async function fetchRecipes() {
     const entryItems = await client.getEntries();
@@ -33,10 +33,10 @@ const categories = [...new Set(orgCategories)];
 
   // It was also easier for me to define three seperate arrays by courses: starter, main, dessert. 
   //Otherwise, when you click on either starters, main or desserts, all items will show.
-const starterArray = recipes.filter((course) => course.fields.category.includes("Starter"));
-const mainArray = recipes.filter((course) => course.fields.category.includes("Main"));
-const dessertArray = recipes.filter((course) => course.fields.category.includes("Dessert"));
-const drinksArray = recipes.filter((course) => course.fields.category.includes("Drink"));
+const starterArray = recipes.filter((course) => course.fields.category.includes("Starter" || "Starters" || "starter" || "starters"));
+const mainArray = recipes.filter((course) => course.fields.category.includes("Main" || "Mains" || "Main Dishes" || "main" || "mains" || "main dishes"));
+const dessertArray = recipes.filter((course) => course.fields.category.includes("Dessert" || "Desserts" || "dessert" || "desserts"));
+const drinksArray = recipes.filter((course) => course.fields.category.includes("Drink" || "Drinks" || "drink" || "drinks"));
 
 // ready to use API data
 console.log(recipes)
