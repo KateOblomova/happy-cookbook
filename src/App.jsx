@@ -17,6 +17,7 @@ function App() {
       <Route path="starter" element={<Navpage/>} />
       <Route path="main" element={<Navpage/>} />
       <Route path="dessert" element={<Navpage/>}/>
+      <Route path="drink" element={<Navpage/>}/>
       <Route path="*" element={<Error/>}/>
     </Routes>
     <Footer />

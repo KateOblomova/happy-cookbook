@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
+
     return (
       <>
       <header style={{display: "flex", justifyContent: "space-evenly", alignItems: "center", fontSize:"25px", textDecoration: "none"}}>
@@ -8,6 +9,7 @@ export default function Navbar() {
       <NavLink to="starter">Starters </NavLink>
       <NavLink to="main">Main Dishes </NavLink>
       <NavLink to="dessert">Desserts </NavLink>
+      <NavLink to="drink">Drinks</NavLink>
       </header>
       <hr/>
       </>  
