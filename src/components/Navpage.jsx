@@ -27,21 +27,36 @@ export default function Navpage() {
   path = path.replace("/","");
   path = capitaliseFirstLetter(path);
 
+// Function to sort arrays from A-Z
+const alphabeticiseArray = (arr) => {
+  return arr.sort((a,b) => {
+    const nameA = a.fields.recipeName.toUpperCase();
+    const nameB = b.fields.recipeName.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1
+    }
+    return 0;
+  });
+}
+const sortedArray = alphabeticiseArray(recipes);
+
   // It was easier for me to have a seperate category array. 
   // I needed to recreate the array so that only original values showed.
   // Otherwise, we'd have an array of multiple 'Main' or 'Starter'
 const orgCategories = recipes.map((text) => (text.fields.category));
 const categories = [...new Set(orgCategories)];
 
-  // It was also easier for me to define three seperate arrays by courses: starter, main, dessert. 
+// It was also easier for me to define three seperate arrays by courses: starter, main, dessert. 
   //Otherwise, when you click on either starters, main or desserts, all items will show.
-const starterArray = recipes.filter((course) => course.fields.category.includes("Starter" || "Starters" || "starter" || "starters"));
-const mainArray = recipes.filter((course) => course.fields.category.includes("Main" || "Mains" || "Main Dishes" || "main" || "mains" || "main dishes"));
-const dessertArray = recipes.filter((course) => course.fields.category.includes("Dessert" || "Desserts" || "dessert" || "desserts"));
-const drinksArray = recipes.filter((course) => course.fields.category.includes("Drink" || "Drinks" || "drink" || "drinks"));
+let starterArray = sortedArray.filter((course) => course.fields.category.includes("Starter" || "Starters" || "starter" || "starters"));
+let mainArray = sortedArray.filter((course) => course.fields.category.includes("Main" || "Mains" || "Main Dishes" || "main" || "mains" || "main dishes"));
+let dessertArray = sortedArray.filter((course) => course.fields.category.includes("Dessert" || "Desserts" || "dessert" || "desserts"));
+let drinksArray = sortedArray.filter((course) => course.fields.category.includes("Drink" || "Drinks" || "drink" || "drinks"));
 
 // ready to use API data
-console.log(recipes)
 console.log(categories);
 return (
         <>
@@ -49,27 +64,27 @@ return (
       <div className="navPage-Container" style={{display: "flex", justifyContent: "space-evenly", flexWrap:"wrap"}}>
       {/* Below I've created a ternary statement per category. I'm saying if the path (e.g. /main) matches the corresponding value in the category array (e.g. category[0]) then map that specific array (e.g. mainArray). 
       Through this method, only the main course dishes will show for the /main, only the starter course dishes will show for /starter ect..*/}
-      {path === categories[3] ? starterArray.map((text, index) =>
+      {path === categories[0] ? starterArray.map((text, index) =>
       <div key={index}>  
       <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
-      {path === categories[0] ? dessertArray.map((text, index) =>
+      {path === categories[4] ? dessertArray.map((text, index) =>
       <div key={index}>  
       <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
-      {path === categories[2] ? mainArray.map((text, index) =>
+      {path === categories[3] ? mainArray.map((text, index) =>
       <div key={index}>  
       <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
-      {path === categories[1] ? drinksArray.map((text, index) =>
+      {path === categories[2] ? drinksArray.map((text, index) =>
       <div key={index}>  
       <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
-      {path === "Allrecipes" ? recipes.map((text, index) =>
+      {path === "Allrecipes" ? sortedArray.map((text, index) =>
       <div key={index}>  
       <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
       <h2>{text.fields.recipeName}</h2> 
