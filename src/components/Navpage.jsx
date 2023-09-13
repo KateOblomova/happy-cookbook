@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { createClient } from "contentful";
+import { SpinnerDotted } from "spinners-react";
 
 export default function Navpage() {
     // Process to pull API data (you know the drill)
   const [recipes, setRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const client = createClient({
     space: "5khedyskutxx",
     accessToken:`${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`,
@@ -12,6 +14,13 @@ export default function Navpage() {
     const entryItems = await client.getEntries();
     setRecipes(entryItems.items);
   }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  },[])
+
   useEffect(() => {
     fetchRecipes();
   }, []); 
@@ -59,9 +68,19 @@ let drinksArray = sortedArray.filter((course) => course.fields.category.includes
 // ready to use API data
 console.log(recipes);
 console.log(categories);
+const loadingArray = ["One moment please", "Turn that oven on", "Sharpen that knife", "Wash your hands", "Hope you are hungry", "Prepare for greatness"];
 return (
         <>
         <h1 style={{textAlign: "center"}}>{path.replace("/","")} Page</h1>
+        {isLoading ? (<div style={{display: "flex", justifyContent: "center", alignItems:"center", flexDirection: "column"}}><SpinnerDotted
+        loading ={isLoading}
+        data-testid="loader"
+        color={"orange"}
+        size={300}
+        />
+        <h2 style={{color: "grey"}}>{loadingArray[Math.floor(Math.random() * 6)]}</h2>
+        </div>
+        ) : (
       <div className="navPage-Container" style={{display: "flex", justifyContent: "space-evenly", flexWrap:"wrap"}}>
       {/* Below I've created a ternary statement per category. I'm saying if the path (e.g. /main) matches the corresponding value in the category array (e.g. category[0]) then map that specific array (e.g. mainArray). 
       Through this method, only the main course dishes will show for the /main, only the starter course dishes will show for /starter ect..*/}
@@ -91,6 +110,7 @@ return (
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
       </div>
+      )}
       </>
     )
 }
