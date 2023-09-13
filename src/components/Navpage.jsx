@@ -4,7 +4,6 @@ import { createClient } from "contentful";
 export default function Navpage() {
     // Process to pull API data (you know the drill)
   const [recipes, setRecipes] = useState([]);
-  const [container, setContainer] = useState(false);
   const client = createClient({
     space: "5khedyskutxx",
     accessToken:`${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`,
@@ -12,11 +11,12 @@ export default function Navpage() {
   async function fetchRecipes() {
     const entryItems = await client.getEntries();
     setRecipes(entryItems.items);
-    setContainer(true);
   }
   useEffect(() => {
     fetchRecipes();
   }, []); 
+
+  console.log(recipes);
 
   // Getting path name and "cleaning" it so that it matches the category 
   const capitaliseFirstLetter = (string) => {
@@ -57,6 +57,7 @@ let dessertArray = sortedArray.filter((course) => course.fields.category.include
 let drinksArray = sortedArray.filter((course) => course.fields.category.includes("Drink" || "Drinks" || "drink" || "drinks"));
 
 // ready to use API data
+console.log(recipes);
 console.log(categories);
 return (
         <>
@@ -64,17 +65,17 @@ return (
       <div className="navPage-Container" style={{display: "flex", justifyContent: "space-evenly", flexWrap:"wrap"}}>
       {/* Below I've created a ternary statement per category. I'm saying if the path (e.g. /main) matches the corresponding value in the category array (e.g. category[0]) then map that specific array (e.g. mainArray). 
       Through this method, only the main course dishes will show for the /main, only the starter course dishes will show for /starter ect..*/}
-      {path === categories[0] ? starterArray.map((text, index) =>
+      {path === categories[1] ? starterArray.map((text, index) =>
       <div key={index}>  
       <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
-      {path === categories[4] ? dessertArray.map((text, index) =>
+      {path === categories[3] ? dessertArray.map((text, index) =>
       <div key={index}>  
       <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
-      {path === categories[3] ? mainArray.map((text, index) =>
+      {path === categories[0] ? mainArray.map((text, index) =>
       <div key={index}>  
       <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
       <h2>{text.fields.recipeName}</h2> 
