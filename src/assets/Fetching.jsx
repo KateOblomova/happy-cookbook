@@ -3,7 +3,7 @@ import { createClient } from "contentful";
 const RecipesList = () => {
   const client = createClient({
     space: "5khedyskutxx",
-    accessToken: "drP2KFtXqZwASAlenERw-DaI8QFD9cSD8IMmQYQkuMM",
+    accessToken: `${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`,
   });
 
   const getRecipes = async () => {

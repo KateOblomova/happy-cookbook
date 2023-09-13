@@ -1,30 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { createClient } from "contentful";
 import { SpinnerDotted } from "spinners-react";
 
-export default function Navpage() {
-    // Process to pull API data (you know the drill)
-  const [recipes, setRecipes] = useState([]);
+export default function Navpage({ recipes }) {
   const [isLoading, setIsLoading] = useState(true);
-  const client = createClient({
-    space: "5khedyskutxx",
-    accessToken:`${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`,
-  });
-  async function fetchRecipes() {
-    const entryItems = await client.getEntries();
-    setRecipes(entryItems.items);
-  }
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1500);
     return () => clearTimeout(timer);
   },[])
-
-  useEffect(() => {
-    fetchRecipes();
-  }, []); 
 
   console.log(recipes);
 
