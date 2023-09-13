@@ -10,6 +10,7 @@ export default function Navbar() {
       <NavLink to="main">Main Dishes </NavLink>
       <NavLink to="dessert">Desserts </NavLink>
       <NavLink to="drink">Drinks</NavLink>
+      <NavLink to="allrecipes">All Recipes</NavLink>
       </header>
       <hr/>
       </>  

@@ -4,6 +4,7 @@ import { createClient } from "contentful";
 export default function Navpage() {
     // Process to pull API data (you know the drill)
   const [recipes, setRecipes] = useState([]);
+  const [container, setContainer] = useState(false);
   const client = createClient({
     space: "5khedyskutxx",
     accessToken:`${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`,
@@ -11,6 +12,7 @@ export default function Navpage() {
   async function fetchRecipes() {
     const entryItems = await client.getEntries();
     setRecipes(entryItems.items);
+    setContainer(true);
   }
   useEffect(() => {
     fetchRecipes();
@@ -42,9 +44,9 @@ const drinksArray = recipes.filter((course) => course.fields.category.includes("
 console.log(recipes)
 console.log(categories);
 return (
-      <>
-      <h1 style={{textAlign: "center"}}>{path.replace("/","")} Page</h1>
-      <div className="navPage-Container" style={{display: "flex", justifyContent: "space-evenly"}}>
+        <>
+        <h1 style={{textAlign: "center"}}>{path.replace("/","")} Page</h1>
+      <div className="navPage-Container" style={{display: "flex", justifyContent: "space-evenly", flexWrap:"wrap"}}>
       {/* Below I've created a ternary statement per category. I'm saying if the path (e.g. /main) matches the corresponding value in the category array (e.g. category[0]) then map that specific array (e.g. mainArray). 
       Through this method, only the main course dishes will show for the /main, only the starter course dishes will show for /starter ect..*/}
       {path === categories[3] ? starterArray.map((text, index) =>
@@ -63,6 +65,11 @@ return (
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
       {path === categories[1] ? drinksArray.map((text, index) =>
+      <div key={index}>  
+      <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
+      <h2>{text.fields.recipeName}</h2> 
+      </div>) : null}
+      {path === "Allrecipes" ? recipes.map((text, index) =>
       <div key={index}>  
       <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
       <h2>{text.fields.recipeName}</h2> 
