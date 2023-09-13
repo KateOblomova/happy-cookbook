@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { createClient } from "contentful";
 import { SpinnerDotted } from "spinners-react";
 
@@ -86,27 +87,29 @@ return (
       Through this method, only the main course dishes will show for the /main, only the starter course dishes will show for /starter ect..*/}
       {path === categories[1] ? starterArray.map((text, index) =>
       <div key={index}>  
-      <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
+      <Link to={`/starter/${text.sys.id}`}>
+      <img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/>
+      </Link>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
       {path === categories[3] ? dessertArray.map((text, index) =>
       <div key={index}>  
-      <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
+      <Link to={`/dessert/${text.sys.id}`}><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></Link>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
       {path === categories[0] ? mainArray.map((text, index) =>
       <div key={index}>  
-      <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
+      <Link to={`/main/${text.sys.id}`}><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></Link>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
       {path === categories[2] ? drinksArray.map((text, index) =>
       <div key={index}>  
-      <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
+      <Link to={`/drink/${text.sys.id}`}><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></Link>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
       {path === "Allrecipes" ? sortedArray.map((text, index) =>
       <div key={index}>  
-      <a href=""><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></a>
+      <Link to={`/drink/${text.sys.id}`}><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></Link>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
       </div>

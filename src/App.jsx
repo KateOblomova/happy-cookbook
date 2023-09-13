@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react'
-import { createClient } from "contentful";
 import { Routes, Route } from "react-router-dom";
 import Homepage from './components/Homepage';
 import Navbar from './components/Navbar';
@@ -13,13 +11,17 @@ function App() {
     <>
     <Navbar />
     <Routes>
+      {/* // First Page */}
       <Route path="/" element={<Homepage/>} />
+      <Route path="*" element={<Error/>}/>
+
+      {/* // Second Page */}
       <Route path="starter" element={<Navpage/>} />
       <Route path="main" element={<Navpage/>} />
       <Route path="dessert" element={<Navpage/>}/>
       <Route path="drink" element={<Navpage/>}/>
       <Route path="allrecipes" element={<Navpage/>}/>
-      <Route path="*" element={<Error/>}/>
+
     </Routes>
     <Footer />
     </>
