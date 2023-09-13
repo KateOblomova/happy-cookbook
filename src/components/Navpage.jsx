@@ -84,7 +84,7 @@ return (
         ) : (
       <div className="navPage-Container" style={{display: "flex", justifyContent: "space-evenly", flexWrap:"wrap"}}>
       {/* Below I've created a ternary statement per category. I'm saying if the path (e.g. /main) matches the corresponding value in the category array (e.g. category[0]) then map that specific array (e.g. mainArray). 
-      Through this method, only the main course dishes will show for the /main, only the starter course dishes will show for /starter ect..*/}
+      Through this method, only the main course dishes will show for the /main, only the starter course dishes will show for /starter ect...*/}
       {path === categories[1] ? starterArray.map((text, index) =>
       <div key={index}>  
       <Link to={`/starter/${text.sys.id}`}>
