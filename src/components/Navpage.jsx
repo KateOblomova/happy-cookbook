@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SpinnerDotted } from "spinners-react";
-import { createClient } from "contentful";
 
 export default function Navpage({ recipes, searchValue }) {
   const [isLoading, setIsLoading] = useState(true);
