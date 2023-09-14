@@ -1,7 +1,8 @@
-import Homepage from './components/Homepage';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Navpage from './components/Navpage';
+import Homepage from "./components/Homepage";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Recipe from "./components/Recipe";
+import Navpage from "./components/Navpage";
 import Error from "./components/ErrorPage";
 import { useState, useEffect } from "react";
 import RecipesList from "./assets/Fetching";
@@ -21,24 +22,23 @@ function App() {
   return (
     <>
       <div>
-      <Navbar />
+        <Navbar />
         <Routes>
-        {/* // First Page */}
-          <Route path="/" element={<Homepage/>} />
-          <Route path="*" element={<Error/>}/>
+          {/* // First Page */}
+          <Route path="/" element={<Homepage />} />
+          <Route path="*" element={<Error />} />
 
-        {/* // Second Page */}
-          <Route path="starter" element={<Navpage recipes={recipes}/>} />
-          <Route path="main" element={<Navpage recipes={recipes}/>} />
-          <Route path="dessert" element={<Navpage recipes={recipes}/>}/>
-          <Route path="drink" element={<Navpage recipes={recipes}/>}/>
-          <Route path="allrecipes" element={<Navpage recipes={recipes}/>}/>
-
-        {/* Third Page */}
-          {/* <Route path="/desert/:hello" element={} /> //Here to pass component of recipe with props to navigate thru each recipe with help of useParams()
-          <Route path="/starter/:hello" element={} />
-          <Route path="/main/:hello" element={} />
-          <Route path="/drink/:hello" element={} /> */}
+          {/* // Second Page */}
+          <Route path="starter" element={<Navpage recipes={recipes} />} />
+          <Route path="main" element={<Navpage recipes={recipes} />} />
+          <Route path="dessert" element={<Navpage recipes={recipes} />} />
+          <Route path="drink" element={<Navpage recipes={recipes} />} />
+          <Route path="allrecipes" element={<Navpage recipes={recipes} />} />
+          {/* Third Page */}
+          <Route path="/starter/:id" element={<Recipe recipes={recipes} />} />
+          <Route path="/main/:id" element={<Recipe recipes={recipes} />} />
+          <Route path="/dessert/:id" element={<Recipe recipes={recipes} />} />
+          <Route path="/drink/:id" element={<Recipe recipes={recipes} />} />
         </Routes>
         <Footer />
       </div>
