@@ -94,7 +94,7 @@ return (
       </div>) : null}
       {path === "Allrecipes" ? sortedArray.map((text, index) =>
       <div key={index}>  
-      <Link to={`/drink/${text.sys.id}`}><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></Link>
+      <Link to={`/${text.fields.category.toLowerCase()}/${text.sys.id}`}><img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/></Link>
       <h2>{text.fields.recipeName}</h2> 
       </div>) : null}
       </div>
