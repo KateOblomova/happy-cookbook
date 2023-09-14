@@ -64,7 +64,7 @@ return (
           return (
             <div key={index}>  
             <Link to={`/${text.fields.category.toLowerCase()}/${text.sys.id}`}>
-            <img style={{borderStyle: "solid", borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/>
+            <img style={{borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/>
             </Link>
             <h2>{text.fields.recipeName}</h2> 
             </div>

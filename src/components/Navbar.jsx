@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Input, Space } from "antd";
 import { useState } from "react";
+import Refresh from "../assets/refresh.png"
 
 export default function Navbar({ setSearchValue, searchValue }) {
   const { Search } = Input;
@@ -9,7 +10,6 @@ export default function Navbar({ setSearchValue, searchValue }) {
   const onSearch = (value, _e, info) => {
     console.log(info?.source,value);
     setSearchValue(value);
-    setValue("");
   }
   const refresh = () => (window.location.reload(true));
   console.log(searchValue);
@@ -26,7 +26,7 @@ export default function Navbar({ setSearchValue, searchValue }) {
         <Space>
           <Search 
           id="searchField"
-          placeholder="Search recipes"
+          placeholder="Search for recipes"
           enterButton="Search"
           size="large"
           search_bar_fill="orange"
@@ -34,7 +34,7 @@ export default function Navbar({ setSearchValue, searchValue }) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           />
-          <button onClick={refresh}>Refresh</button>
+          <button onClick={refresh}><img src={Refresh} alt="refresh symbol" width="25px" style={{filter: "contract(1)"}} /></button>
         </Space>
       </div>
       </header>
