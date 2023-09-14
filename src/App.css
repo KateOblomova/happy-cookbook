@@ -9,3 +9,71 @@
 /* DARELL */
 
 /* KATE */
+.mainContainer {
+  margin: 0;
+  padding: 0%;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-position: left center;
+}
+
+.recipeName {
+  font-size: 50px;
+  margin-top: 20px;
+}
+
+.pictureIngredientsContainer {
+  display: flex;
+
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.recipeIngridients {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  margin: 30px;
+}
+ul {
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+  padding: 10px 30px;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Rotten_Tomatoes.svg/1200px-Rotten_Tomatoes.svg.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 20px;
+  font-size: 25px;
+}
+
+ol li {
+  list-style: none;
+  padding: 10px 30px;
+  background-image: url("https://www.svgrepo.com/show/86058/check-mark.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 20px;
+  font-size: 25px;
+}
+
+.recipePicture {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.recipePicture img {
+  width: 50%;
+  height: 50%;
+  border-radius: 5%;
+}
