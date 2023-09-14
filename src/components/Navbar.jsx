@@ -1,7 +1,18 @@
 import { NavLink } from "react-router-dom";
+import { Input, Space } from "antd";
+import { useState } from "react";
 
-export default function Navbar() {
+export default function Navbar({ setSearchValue, searchValue }) {
+  const { Search } = Input;
+  const [value, setValue] = useState("");
 
+  const onSearch = (value, _e, info) => {
+    console.log(info?.source,value);
+    setSearchValue(value);
+    setValue("");
+  }
+  const refresh = () => (window.location.reload(true));
+  console.log(searchValue);
     return (
       <>
       <header style={{display: "flex", justifyContent: "space-evenly", alignItems: "center", fontSize:"25px", textDecoration: "none"}}>
@@ -11,6 +22,21 @@ export default function Navbar() {
       <NavLink to="dessert">Desserts </NavLink>
       <NavLink to="drink">Drinks</NavLink>
       <NavLink to="allrecipes">All Recipes</NavLink>
+      <div className="search">
+        <Space>
+          <Search 
+          id="searchField"
+          placeholder="Search recipes"
+          enterButton="Search"
+          size="large"
+          search_bar_fill="orange"
+          onSearch={onSearch}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          />
+          <button onClick={refresh}>Refresh</button>
+        </Space>
+      </div>
       </header>
       <hr/>
       </>  
