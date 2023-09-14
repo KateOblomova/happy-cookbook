@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SpinnerDotted } from "spinners-react";
+import { createClient } from "contentful";
 
-export default function Navpage({ recipes }) {
+export default function Navpage({ recipes, searchValue }) {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -10,8 +11,10 @@ export default function Navpage({ recipes }) {
     }, 1500);
     return () => clearTimeout(timer);
   },[])
-
-  console.log(recipes);
+  // Search array
+  const filteredRecipes = recipes.filter((item) => 
+  item.fields.recipeName.toLowerCase().includes(searchValue.toLowerCase())
+  );
 
   // Getting path name and "cleaning" it so that it matches the category 
   const capitaliseFirstLetter = (string) => {
@@ -37,7 +40,7 @@ const alphabeticiseArray = (arr) => {
     return 0;
   });
 }
-const sortedArray = alphabeticiseArray(recipes);
+alphabeticiseArray(recipes);
 
 // ready to use API data
 console.log(recipes);
@@ -56,7 +59,7 @@ return (
         </div>
         ) : (
       <div className="navPage-Container" style={{display: "flex", justifyContent: "space-evenly", flexWrap:"wrap"}}>      
-      {recipes.map((text, index) => {
+      {filteredRecipes.map((text, index) => {
         if (text.fields.category === path || path === "Allrecipes") {
           return (
             <div key={index}>  
