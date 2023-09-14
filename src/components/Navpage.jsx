@@ -22,6 +22,7 @@ export default function Navpage({ recipes }) {
   path = path.replace("/","");
   path = capitaliseFirstLetter(path);
 
+// this comment doesn't say anything
 // Function to sort arrays from A-Z
 const alphabeticiseArray = (arr) => {
   return arr.sort((a,b) => {
