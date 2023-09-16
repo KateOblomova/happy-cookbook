@@ -1,11 +1,20 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Recipe({ recipes }) {
   const { id } = useParams();
   const singleRecipe = recipes?.find((element) => element?.sys.id === id);
+  const navigate = useNavigate();
+
+  /* EXTRACT ID */
+  const extractedID = recipes.filter(
+    (recipe) => recipe.fields.category === singleRecipe?.fields.category
+  );
+  const idArray = extractedID.map((recipe) => recipe.sys.id);
+  console.log("Extracted ID after function", idArray);
 
   return (
     <>
+      {console.log("Recipe page", { recipes })}
       <div className="mainContainer">
         <div className="recipeName">{singleRecipe?.fields.recipeName}</div>
         <div className="pictureIngredientsContainer">
@@ -29,6 +38,32 @@ export default function Recipe({ recipes }) {
             ))}
           </ol>
         </div>
+      </div>
+      <div id="buttons">
+        <button
+          onClick={() =>
+            navigate(
+              `/${singleRecipe?.fields.category}/${
+                idArray[
+                  (idArray.indexOf(id) - 1 + idArray.length) % idArray.length
+                ]
+              }`
+            )
+          }
+        >
+          ⟵
+        </button>
+        <button
+          onClick={() =>
+            navigate(
+              `/${singleRecipe?.fields.category}/${
+                idArray[(idArray.indexOf(id) + 1) % idArray.length]
+              }`
+            )
+          }
+        >
+          ⟶
+        </button>
       </div>
     </>
   );
