@@ -4,6 +4,15 @@
   display: flex;
 }
 
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 10px;
+}
+
 /* NITA */
 
 /* DARELL */
