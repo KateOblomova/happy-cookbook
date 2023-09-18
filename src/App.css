@@ -1,5 +1,14 @@
 /* STEFAN */
 
+html, body {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  height: 100vh;
+}
+
 .pictureIngredientsContainer {
   display: flex;
 }
@@ -18,10 +27,8 @@ button {
 
 #footer{
   background-color:#D2B48C ;
-  min-width: 400px;
-  min-height: 100px;
-
  }
+
  .footer-content{
 
   display: flex;
@@ -31,14 +38,20 @@ button {
 .stay-touch{
   margin-left: 20%;
   font-style: italic;
-  
 }
+
+.stay-touch h2 {
+  font-size: 3rem;
+}
+
+.stay-touch p {
+  font-size: 1.5rem;
+}
+
 .email-bar{
   display: block;
   margin-left: 20%;
   align-content: space-between;
-  
-  
 }
 
 .submit-button{
@@ -107,7 +120,7 @@ font-size: 12px;
   .image-box img {
     background-image: url('hero-image.jpeg');
    padding-left: 0px;
-   min-width:95%;
+   max-width:100%;
    min-height:800px;
    padding-right:10px;
    }
@@ -155,6 +168,10 @@ font-size: 12px;
   
   
 /* DARELL */
+:where(.css-dev-only-do-not-override-18iikkb).ant-btn-primary {
+  background-color: black;
+  margin: 0px;
+}
 
 /* KATE */
 .mainContainer {
@@ -225,3 +242,4 @@ ol li {
   height: 50%;
   border-radius: 5%;
 }
+

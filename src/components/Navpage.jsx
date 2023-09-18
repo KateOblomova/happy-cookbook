@@ -47,7 +47,8 @@ console.log(path);
 const loadingArray = ["One moment please", "Turn that oven on", "Sharpen that knife", "Wash your hands", "Hope you are hungry", "Prepare for greatness"];
 return (
         <>
-        <h1 style={{textAlign: "center"}}>{path.replace("/","")} Page</h1>
+        {path !== "Allrecipes" ? <h1 style={{textAlign: "center"}}>{path}s </h1> : <h1 style={{textAlign: "center"}}> All Recipes</h1>}
+        
         {isLoading ? (<div style={{display: "flex", justifyContent: "center", alignItems:"center", flexDirection: "column"}}><SpinnerDotted
         loading ={isLoading}
         data-testid="loader"
