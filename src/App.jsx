@@ -11,6 +11,7 @@ import "./App.css";
 
 function App() {
   const [recipes, setRecipes] = useState([]); //fetched recipes are in this state, pass them down to your component as props
+  const [searchValue, setSearchValue] = useState("");
   const { getRecipes } = RecipesList();
 
   useEffect(() => {
@@ -22,18 +23,18 @@ function App() {
   return (
     <>
       <div>
-        <Navbar />
+        <Navbar setSearchValue={setSearchValue} searchValue={searchValue}/>
         <Routes>
           {/* // First Page */}
           <Route path="/" element={<Homepage />} />
           <Route path="*" element={<Error />} />
 
           {/* // Second Page */}
-          <Route path="starter" element={<Navpage recipes={recipes} />} />
-          <Route path="main" element={<Navpage recipes={recipes} />} />
-          <Route path="dessert" element={<Navpage recipes={recipes} />} />
-          <Route path="drink" element={<Navpage recipes={recipes} />} />
-          <Route path="allrecipes" element={<Navpage recipes={recipes} />} />
+          <Route path="starter" element={<Navpage recipes={recipes} searchValue={searchValue} />} />
+          <Route path="main" element={<Navpage recipes={recipes} searchValue={searchValue} />} />
+          <Route path="dessert" element={<Navpage recipes={recipes} searchValue={searchValue} />} />
+          <Route path="drink" element={<Navpage recipes={recipes} searchValue={searchValue} />} />
+          <Route path="allrecipes" element={<Navpage recipes={recipes} searchValue={searchValue} />} />
           {/* Third Page */}
           <Route path="/starter/:id" element={<Recipe recipes={recipes} />} />
           <Route path="/main/:id" element={<Recipe recipes={recipes} />} />
