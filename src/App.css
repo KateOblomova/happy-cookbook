@@ -188,7 +188,7 @@ font-size: 12px;
 
 .refreshButton {
   margin: 0px;
-  /* border-style: solid; bla bla bla*/
+  /* border-style: solid; bla bla bla bla*/
   background-color: black;
   cursor: pointer;
   transition: all 0.20s ease-in;
