@@ -62,9 +62,9 @@ return (
       {filteredRecipes.map((text, index) => {
         if (text.fields.category === path || path === "Allrecipes") {
           return (
-            <div key={index}>  
+            <div className="categoryMealsCards" key={index}>  
             <Link to={`/${text.fields.category.toLowerCase()}/${text.sys.id}`}>
-            <img style={{borderRadius: "30px"}} src={text.fields.picture.fields.file.url} width="350px" height="350px"/>
+            <img className="categoryMealsPicture" style={{borderRadius: "30px"}} src={text.fields.picture.fields.file.url}/>
             </Link>
             <h2>{text.fields.recipeName}</h2> 
             </div>
