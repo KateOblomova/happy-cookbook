@@ -26,12 +26,8 @@ export default function Footer() {
                     <div class="email-button">
                         <button class="submit-button" type="submit" name="subscribe" >SUBSCRIBE</button>
                     </div>
-            
                    </div>
                          </div>
-          
-            
-            
             <p class="copyright" id="copyright1">Copyright © 2023  All Rights Reserved <br> 
                   </br> Proudly hosted by Group-1</p>
                 

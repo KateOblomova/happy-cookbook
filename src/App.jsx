@@ -22,11 +22,14 @@ function App() {
 
   return (
     <>
+    <body>
+      
+    
       <div>
         <Navbar setSearchValue={setSearchValue} searchValue={searchValue}/>
         <Routes>
           {/* // First Page */}
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<Homepage recipes={recipes} />} />
           <Route path="*" element={<Error />} />
 
           {/* // Second Page */}
@@ -43,6 +46,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
+      </body>
     </>
   );
 }
