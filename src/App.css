@@ -95,7 +95,7 @@ button {
   font-style: italic;
 }
 .image-box img {
-  background-image: url("hero-image.jpeg");
+  background-image: url("./hero-image.jpeg");
   padding-left: 0px;
   min-width: 100%; /*changed*/
   max-height: 100%; /*changed*/
