@@ -97,18 +97,17 @@ button {
 .image-box img {
   background-image: url("hero-image.jpeg");
   padding-left: 0px;
-  max-width: 100%;
-  max-height: 100%;
-  padding-right: 10px;
+  min-width: 100%; /*changed*/
+  max-height: 100%; /*changed*/
 }
 .text-overlay {
   position: absolute;
-  top: 40%;
+  top: 45%; /*changed*/
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   color: whitesmoke;
-  opacity: 80%;
+  opacity: 80%; /*added*/
 }
 .text-overlay p {
   font-size: 3rem;
@@ -214,7 +213,7 @@ ol li {
 .homepageCardsContainer {
   display: flex;
   justify-content: space-between;
-  margin-top: 5%;
+  margin: 5%; /*changed*/
   flex-wrap: wrap;
 }
 
@@ -241,9 +240,10 @@ ol li {
   color: rgb(11, 50, 11);
   font-size: 50px;
   font-weight: bold;
-  left: 38px;
+  left: 20px; /*changed*/
   top: 290px;
   text-decoration: none;
+  opacity: 80%;
 }
 
 .categoryMealsCards {
