@@ -30,12 +30,10 @@ button {
  }
 
  .footer-content{
-
   display: flex;
   margin-top: 20px;
- 
-  }
-.stay-touch{
+}
+.stay-touch {
   margin-left: 20%;
   font-style: italic;
 }
@@ -54,8 +52,8 @@ button {
   align-content: space-between;
 }
 
-.submit-button{
-  background-color:black;
+.submit-button {
+  background-color: black;
   color: white;
   min-width: 350px;
   min-height: 40px;
@@ -63,110 +61,104 @@ button {
   font-style: italic;
 }
 
-.s-icon{
+.s-icon {
   font-size: 25px;
-  
+
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-.input-button{
+.input-button {
   background-color: white;
   min-width: 350px;
   min-height: 40px;
   text-align: center;
   text-decoration-color: black;
-  margin-bottom:10px ;
+  margin-bottom: 10px;
   margin-top: 10px;
   font-style: italic;
 }
-#copyright1{
-display: flex;
-justify-content: center;
-margin-top: 60px;
-font-size: 12px;
+
+#copyright1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  font-size: 12px;
 }
-  /*header styling*/
-  
+/*header styling*/
 
-  
-  .header-container{
-    display:flex;
-    background-color:#D2B48C ;
-  }
-  
-  
-  .header-container ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .header-container li {
-    margin-left: 90px;
-    margin-right: 90px;
-    margin-top: 20px;
-    text-decoration: none;
+.header-container {
+  display: flex;
+  background-color: #d2b48c;
+}
 
-  }
-  
-  .header-container a {
-    text-decoration: none;
-    color:black;
-    font-weight: bold;
-    font-size: 2rem;
-    font-style: italic;
-  }
-  .image-box img {
-    background-image: url('hero-image.jpeg');
-   padding-left: 0px;
-   max-width:100%;
-   min-height:800px;
-   padding-right:10px;
-   }
-   .text-overlay {
-    position: absolute;
-    top: 70%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    text-align: center; 
-    color:whitesmoke;
+.header-container ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-container li {
+  margin-left: 90px;
+  margin-right: 90px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.header-container a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 2rem;
+  font-style: italic;
+}
+.image-box img {
+  background-image: url("hero-image.jpeg");
+  padding-left: 0px;
+  max-width: 100%;
+  max-height: 100%;
+  padding-right: 10px;
+}
+.text-overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: whitesmoke;
+  opacity: 80%;
+
 }
 .text-overlay p {
   font-size: 3rem;
   font-style: italic;
-
 }
-.main-container{
-  background-color: #D2B48C;
+.main-container {
+  background-color: #d2b48c;
 }
-  /*----container3 ----*/
-  .main-section{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    margin-top: 20px;
-    align-items: flex-start;
-    
-  }
-  
-  
-  .flex-container h2{
-    font-style: italic;
-    font-weight:3rem;
-    font-weight:2px solid black ;
+/*----container3 ----*/
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  margin-top: 5%;
+  align-items: flex-start;
+}
 
+.flex-container h2 {
+  font-style: italic;
+  font-weight: 3rem;
+  font-weight: 2px solid black;
+  margin: 2%;
+}
+.flex-container p {
+  font-style: italic;
+  font: 1em;
+  font-weight: bold;
+  margin: 2%;
+}
 
-  }
-  .flex-container p{
-    font-style: italic;
-    font: 1em ;
-    font-weight: bold;
-  }
-
-  
-  
 /* DARELL */
 :where(.css-dev-only-do-not-override-18iikkb).ant-btn-primary {
   background-color: black;
@@ -265,8 +257,75 @@ ol li {
 }
 
 .recipePicture img {
-  width: 50%;
-  height: 50%;
+  max-height: 400px;
   border-radius: 5%;
+}
+
+
+.homepageCardsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+  flex-wrap: wrap;
+}
+
+.homepageCardsImg {
+  width: 300px;
+  height: 300px;
+  margin-top: 10%;
+  opacity: 60%;
+}
+.homepageCardsImg:hover {
+  opacity: 100%;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: rgba(174, 176, 134, 0.5);
+  padding: 2%;
+}
+.homepageCardsHeader {
+  position: absolute;
+  z-index: 100;
+  color: rgb(11, 50, 11);
+  font-size: 50px;
+  font-weight: bold;
+  left: 38px;
+  top: 290px;
+  text-decoration: none;
+}
+
+.categoryMealsCards {
+  width: 400px;
+  height: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(174, 176, 134, 0.5);
+  margin: 10px;
+}
+.categoryMealsCards h2 {
+  color: rgb(11, 50, 11);
+  font-size: 30px;
+  font-weight: bold;
+  opacity: 80%;
+  margin: 4px;
+}
+.categoryMealsPicture {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin-top: 10%;
+  opacity: 60%;
+}
+
+.categoryMealsPicture:hover {
+  opacity: 100%;
+}
+html,
+body {
+  margin: 0;
 }
 
