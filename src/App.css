@@ -1,5 +1,14 @@
 /* STEFAN */
 
+html, body {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  height: 100vh;
+}
+
 .pictureIngredientsContainer {
   display: flex;
 }
@@ -16,12 +25,11 @@ button {
 /* NITA */
 /*footer styling*/
 
-#footer {
-  background-color: #d2b48c;
-  min-width: 400px;
-  min-height: 100px;
-}
-.footer-content {
+#footer{
+  background-color:#D2B48C ;
+ }
+
+ .footer-content{
   display: flex;
   margin-top: 20px;
 }
@@ -29,7 +37,16 @@ button {
   margin-left: 20%;
   font-style: italic;
 }
-.email-bar {
+
+.stay-touch h2 {
+  font-size: 3rem;
+}
+
+.stay-touch p {
+  font-size: 1.5rem;
+}
+
+.email-bar{
   display: block;
   margin-left: 20%;
   align-content: space-between;
@@ -60,6 +77,7 @@ button {
   margin-top: 10px;
   font-style: italic;
 }
+
 #copyright1 {
   display: flex;
   justify-content: center;
@@ -109,6 +127,7 @@ button {
   text-align: center;
   color: whitesmoke;
   opacity: 80%;
+
 }
 .text-overlay p {
   font-size: 3rem;
@@ -141,6 +160,37 @@ button {
 }
 
 /* DARELL */
+:where(.css-dev-only-do-not-override-18iikkb).ant-btn-primary {
+  background-color: black;
+  margin: 0px;
+}
+
+:where(.css-dev-only-do-not-override-18iikkb).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  background-color: rgb(221, 123, 3);
+  
+}
+
+:where(.css-dev-only-do-not-override-18iikkb).ant-input-search .ant-input:hover {
+  border-color: rgb(221, 123, 3);
+}
+
+:where(.css-dev-only-do-not-override-18iikkb).ant-input-search .ant-input:hover, :where(.css-dev-only-do-not-override-18iikkb).ant-input-search .ant-input:focus {
+  border-color:rgb(221, 123, 3);
+}
+
+.refreshButton {
+  margin: 0px;
+  /* border-style: solid; */
+  background-color: black;
+  cursor: pointer;
+  transition: all 0.20s ease-in;
+}
+
+.refreshButton:hover {
+  background-color: rgb(221, 123, 3);;
+  border-color: rgb(221, 123, 3);
+
+}
 
 /* KATE */
 .mainContainer {
@@ -211,6 +261,7 @@ ol li {
   border-radius: 5%;
 }
 
+
 .homepageCardsContainer {
   display: flex;
   justify-content: space-between;
@@ -277,3 +328,4 @@ html,
 body {
   margin: 0;
 }
+
