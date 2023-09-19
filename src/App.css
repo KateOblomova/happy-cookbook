@@ -141,20 +141,16 @@ button {
 }
 
 /* DARELL */
-:where(.css-dev-only-do-not-override-18iikkb).ant-btn-primary {
+:where(.css-i0102m).ant-btn-primary {
   background-color: black;
   margin: 0px;
 }
 
-:where(.css-dev-only-do-not-override-18iikkb).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+:where(.css-i0102m).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
   background-color: rgb(221, 123, 3);
 }
 
-:where(.css-dev-only-do-not-override-18iikkb).ant-input-search .ant-input:hover {
-  border-color: rgb(221, 123, 3);
-}
-
-:where(.css-dev-only-do-not-override-18iikkb).ant-input-search .ant-input:hover, :where(.css-dev-only-do-not-override-18iikkb).ant-input-search .ant-input:focus {
+:where(.css-i0102m).ant-input-search .ant-input:hover, :where(.css-i0102m).ant-input-search .ant-input:focus {
   border-color:rgb(221, 123, 3);
 }
 
