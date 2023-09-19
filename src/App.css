@@ -173,6 +173,10 @@ font-size: 12px;
   margin: 0px;
 }
 
+:where(.css-dev-only-do-not-override-18iikkb).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  background-color: rgb(221, 123, 3);
+}
+
 /* KATE */
 .mainContainer {
   margin: 0;
