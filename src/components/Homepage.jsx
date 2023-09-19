@@ -1,12 +1,13 @@
 import Footer from "./Footer";
 import { NavLink } from "react-router-dom";
+import Hero from "../assets/hero-image.jpeg"
 
 export default function Homepage() {
   return (
     <div>
       <div className="hero-container">
         <div className="image-box">
-          <img src="hero-image.jpeg" alt="heroimage" />
+          <img src={Hero} alt="heroimage" />
           <div class="text-overlay">
             <p>
               "Global Flavor Fusion: Your Culinary Passport to Multicuisine
