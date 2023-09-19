@@ -70,6 +70,7 @@ button {
   display: flex;
   justify-content: center;
   margin-top: 60px;
+  margin-bottom: 0px;
   font-size: 12px;
 }
 /*header styling*/
