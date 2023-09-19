@@ -34,7 +34,7 @@ export default function Navbar({ setSearchValue, searchValue }) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           />
-          <button onClick={refresh}><img src={Refresh} alt="refresh symbol" width="25px" /></button>
+          <button className="refreshButton" onClick={refresh}><img src={Refresh} alt="refresh symbol" width="25px" /></button>
         </Space>
       </div>
       </header>
