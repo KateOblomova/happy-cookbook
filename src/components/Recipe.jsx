@@ -73,7 +73,7 @@ export default function Recipe() {
           </ol>
         </div>
       </div>
-      <div id="buttons">
+      <div style={{backgroundColor: themeStyles.background}} id="buttons">
         <button
           onClick={() =>
             navigate(
