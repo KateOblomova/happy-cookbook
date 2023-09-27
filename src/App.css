@@ -140,6 +140,30 @@ button {
 }
 
 /* DARELL */
+:where(.css-i0102m).ant-btn-primary {
+  background-color: black;
+  margin: 0px;
+}
+
+:where(.css-i0102m).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  background-color: rgb(221, 123, 3);
+}
+
+:where(.css-i0102m).ant-input-search .ant-input:hover, :where(.css-i0102m).ant-input-search .ant-input:focus {
+  border-color:rgb(221, 123, 3);
+}
+
+.refreshButton {
+  margin: 0px;
+  background-color: black;
+  cursor: pointer;
+  transition: all 0.20s ease-in;
+}
+
+.refreshButton:hover {
+  background-color: rgb(221, 123, 3);;
+  border-color: rgb(221, 123, 3);
+}
 
 /* KATE */
 .mainContainer {
