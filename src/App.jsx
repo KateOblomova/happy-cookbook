@@ -20,7 +20,8 @@ function App() {
 
   // console.log(recipes);
   const fetching = async () => {
-    const data = await fetch("https://recipes-practise.onrender.com/");
+    // const data = await fetch("https://recipes-practise.onrender.com/");
+    const data = await fetch("https://powerfulcookbook-api.onrender.com//");
     const res = await data.json();
     setRecipes(res);
   };
@@ -67,8 +68,7 @@ function App() {
             <Route path="/main/:id" element={<Recipe recipes={recipes} />} />
             <Route path="/dessert/:id" element={<Recipe recipes={recipes} />} />
             {/* <Route path="/drink/:id" element={<Recipe recipes={recipes} />} /> */}
-            <Route path="/drink/:id" element={<Recipe  />} />
-
+            <Route path="/drink/:id" element={<Recipe />} />
           </Routes>
           <Footer />
         </div>
