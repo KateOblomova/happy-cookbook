@@ -6,7 +6,7 @@ export default function Homepage() {
     <div>
       <div className="hero-container">
         <div className="image-box">
-          <img src="hero-image.jpeg" alt="heroimage" />
+          <img src="/src/assets/hero-image.jpeg" alt="heroimage" />
           <div class="text-overlay">
             <p>
               "Global Flavor Fusion: Your Culinary Passport to Multicuisine
