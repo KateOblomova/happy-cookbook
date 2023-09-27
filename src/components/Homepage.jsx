@@ -1,11 +1,17 @@
 import Footer from "./Footer";
 import { NavLink } from "react-router-dom";
 import Hero from "../assets/hero-image.jpeg";
+import { ThemeContext } from "../context/ThemeContext.jsx"
+import { useContext } from "react" 
 
 export default function Homepage() {
+const {light, dark, isLightTheme} = useContext(ThemeContext);
+
+const themeStyles = isLightTheme ? light : dark;
+
   return (
-    <div>
-      <div className="hero-container">
+    <div style={{backgroundColor: themeStyles.background}}>
+      <div style={{backgroundColor: themeStyles.background}} className="hero-container">
         <div className="image-box">
           <img src={Hero} alt="heroimage" />
           <div class="text-overlay">
@@ -16,8 +22,8 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-      <div className="main-section">
-        <div div className="flex-container">
+      <div style={{backgroundColor: themeStyles.background}} className="main-section">
+        <div style={{color: themeStyles.text}} className="flex-container">
           <h2>UKRAINIAN CUISINE</h2>
           <p>
             Ukrainian cuisine is a hearty and flavorful reflection of the
@@ -31,7 +37,7 @@ export default function Homepage() {
             dairy products.{" "}
           </p>
         </div>
-        <div className="flex-container">
+        <div style={{color: themeStyles.text}} className="flex-container">
           <h2>BRITISH CUISINE</h2>
           <p>
             British cuisine is a blend of traditions, flavors, and influences
@@ -44,7 +50,7 @@ export default function Homepage() {
           </p>
         </div>
 
-        <div class="flex-container">
+        <div class="flex-container" style={{color: themeStyles.text}}>
           <h2>SLOVAKIA CUISINE</h2>
           <p>
             Slovak cuisine is a reflection of the country's Central European
@@ -58,7 +64,7 @@ export default function Homepage() {
             Slovak culture and traditions.
           </p>
         </div>
-        <div className="flex-container">
+        <div className="flex-container" style={{color: themeStyles.text}}>
           <h2>INDIAN CUISINE</h2>
           <p>
             Indian cuisine is renowned for its diversity, bold flavors, and
@@ -71,9 +77,9 @@ export default function Homepage() {
           </p>
         </div>
       </div>
-      <div className="homepageCardsContainer">
-        <div className="cardContainer">
-          <NavLink to="starter" className="homepageCardsHeader">
+      <div style={{backgroundColor: themeStyles.background}} className="homepageCardsContainer">
+        <div style={{backgroundColor: themeStyles.cardBackground}} className="cardContainer">
+          <NavLink style={{color: themeStyles.cardText}} to="starter" className="homepageCardsHeader">
             Starters{" "}
           </NavLink>
           <img
@@ -81,8 +87,8 @@ export default function Homepage() {
             className="homepageCardsImg"
           />
         </div>
-        <div className="cardContainer">
-          <NavLink to="main" className="homepageCardsHeader">
+        <div style={{backgroundColor: themeStyles.cardBackground}} className="cardContainer">
+          <NavLink style={{color: themeStyles.cardText}} to="main" className="homepageCardsHeader">
             Main Course{" "}
           </NavLink>
           <img
@@ -90,8 +96,8 @@ export default function Homepage() {
             className="homepageCardsImg"
           />
         </div>
-        <div className="cardContainer">
-          <NavLink to="dessert" className="homepageCardsHeader">
+        <div style={{backgroundColor: themeStyles.cardBackground}} className="cardContainer">
+          <NavLink style={{color: themeStyles.cardText}} to="dessert" className="homepageCardsHeader">
             Desserts{" "}
           </NavLink>
           <img
@@ -99,8 +105,8 @@ export default function Homepage() {
             className="homepageCardsImg"
           />
         </div>
-        <div className="cardContainer">
-          <NavLink to="drink" className="homepageCardsHeader">
+        <div style={{backgroundColor: themeStyles.cardBackground}} className="cardContainer">
+          <NavLink style={{color: themeStyles.cardText}} to="drink" className="homepageCardsHeader">
             Drinks
           </NavLink>
           <img

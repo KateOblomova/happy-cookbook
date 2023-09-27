@@ -1,8 +1,12 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Recipe() {
   const { id } = useParams();
+  const {light, dark, isLightTheme} = useContext(ThemeContext);
+  const themeStyles = isLightTheme ? light : dark
 
   //kate
   const [recipes, setRecipes] = useState([]);
@@ -40,17 +44,17 @@ export default function Recipe() {
   return (
     <>
       {console.log("Recipe page", { recipes })}
-      <div className="mainContainer">
+      <div style={{backgroundColor: themeStyles.background}} className="mainContainer">
         {/* <div className="recipeName">{singleRecipe?.fields.recipeName}</div> */}
-        <div className="recipeName">{singleRecipe?.name}</div>
+        <div style={{color: themeStyles.text}} className="recipeName">{singleRecipe?.name}</div>
 
-        <div className="pictureIngredientsContainer">
-          <div className="recipeIngredients">
+        <div style={{backgroundColor: themeStyles.background}} className="pictureIngredientsContainer">
+          <div style={{color: themeStyles.text, backgroundColor: themeStyles.background}} className="recipeIngredients">
             INGREDIENTS
-            <ul>
+            <ul style={{color: themeStyles.text, backgroundColor: themeStyles.background}}>
               {/* {singleRecipe?.fields.ingredients?.map((ingredient) => ( */}
               {singleRecipe?.ingredients?.map((ingredient) => (
-                <li>{ingredient}</li>
+                <li style={{color: themeStyles.text, backgroundColor: themeStyles.background}}>{ingredient}</li>
               ))}
             </ul>
           </div>
@@ -59,12 +63,12 @@ export default function Recipe() {
             <img src={singleRecipe?.image}></img>
           </div>
         </div>
-        <div className="recipeInstructions">
+        <div style={{color: themeStyles.text, backgroundColor: themeStyles.background}} className="recipeInstructions">
           INSTRUCTIONS
-          <ol>
+          <ol style={{color: themeStyles.text, backgroundColor: themeStyles.background}}>
             {/* {singleRecipe?.fields.instructions?.map((instruction) => ( */}
             {singleRecipe?.instructions?.map((instruction) => (
-              <li>{instruction}</li>
+              <li style={{color: themeStyles.text, backgroundColor: themeStyles.background}}>{instruction}</li>
             ))}
           </ol>
         </div>

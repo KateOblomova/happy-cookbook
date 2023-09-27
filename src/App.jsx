@@ -36,7 +36,7 @@ function App() {
     <>
       <body>
         <div>
-          <Navbar setSearchValue={setSearchValue} searchValue={searchValue} />
+          <Navbar setSearchValue={setSearchValue} searchValue={searchValue}/>
           <Routes>
             {/* // First Page */}
             <Route path="/" element={<Homepage recipes={recipes} />} />

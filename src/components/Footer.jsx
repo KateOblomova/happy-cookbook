@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext.jsx"
 
 export default function Footer() {
+  const {light, dark, isLightTheme} = useContext(ThemeContext);
+
+  const themeStyles = isLightTheme ? light : dark
     return (
       <>
-       <div class="footer" id="footer">
-                    <div class="footer-content">
+       <div class="footer" id="footer" style={{backgroundColor: themeStyles.ui}}>
+                    <div style={{color: themeStyles.text, margin: "0px"}} class="footer-content">
                         <div class="stay-touch">
                          <h2>Stay in Touch</h2>
                         <p> Please subscribe to our newsletter to get the latest news in your domain of interest. <br>
@@ -28,7 +33,7 @@ export default function Footer() {
                     </div>
                    </div>
                          </div>
-            <p class="copyright" id="copyright1">Copyright © 2023  All Rights Reserved <br> 
+            <p style={{color: themeStyles.text}} class="copyright" id="copyright1">Copyright © 2023  All Rights Reserved <br> 
                   </br> Proudly hosted by Group-1</p>
                 
         

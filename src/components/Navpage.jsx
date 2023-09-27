@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SpinnerDotted } from "spinners-react";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext.jsx"
 
 export default function Navpage({ searchValue }) {
   //kate
   const [recipes, setRecipes] = useState([]);
+  const {light, dark, isLightTheme} = useContext(ThemeContext);
+  const themeStyles = isLightTheme ? light : dark
 
   const fetching = async () => {
     const data = await fetch("https://powerfulcookbook-api.onrender.com/");
@@ -86,9 +90,9 @@ export default function Navpage({ searchValue }) {
   return (
     <>
       {path !== "Allrecipes" ? (
-        <h1 style={{ textAlign: "center" }}>{path}s </h1>
+        <h1 style={{ textAlign: "center", color: themeStyles.text, backgroundColor: themeStyles.background, margin: "0px", padding: "1% 0"}}>{path}s </h1>
       ) : (
-        <h1 style={{ textAlign: "center" }}> All Recipes</h1>
+        <h1 style={{ textAlign: "center", color: themeStyles.text, backgroundColor: themeStyles.background, margin: "0px", padding: "1% 0"}}> All Recipes</h1>
       )}
 
       {isLoading ? (
@@ -98,12 +102,13 @@ export default function Navpage({ searchValue }) {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
+            backgroundColor: themeStyles.background,
           }}
         >
           <SpinnerDotted
             loading={isLoading}
             data-testid="loader"
-            color={"orange"}
+            color="orange"
             size={300}
           />
           <h2 style={{ color: "grey" }}>
@@ -117,13 +122,14 @@ export default function Navpage({ searchValue }) {
             display: "flex",
             justifyContent: "space-evenly",
             flexWrap: "wrap",
+            backgroundColor: themeStyles.background
           }}
         >
           {filteredRecipes.map((text, index) => {
             // if (text.fields.category === path || path === "Allrecipes") {
             if (text.category === path || path === "Allrecipes") {
               return (
-                <div className="categoryMealsCards" key={index}>
+                <div style={{backgroundColor: themeStyles.background}} className="categoryMealsCards" key={index}>
                   <Link
                     // to={`/${text.fields.category.toLowerCase()}/${text.sys.id}`}
                     to={`/${text.category.toLowerCase()}/${text.id}`}
@@ -136,7 +142,7 @@ export default function Navpage({ searchValue }) {
                     />
                   </Link>
                   {/* <h2>{text.fields.recipeName}</h2> */}
-                  <h2>{text.name}</h2>
+                  <h2 style={{color: themeStyles.text}}>{text.name}</h2>
                 </div>
               );
             }
