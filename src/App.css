@@ -29,6 +29,14 @@ button {
   margin-left: 20%;
   font-style: italic;
 }
+
+.stay-touch h2 {
+  font-size: 3rem;
+}
+.stay-touch p {
+  font-size: 1.5rem;
+}
+
 .email-bar {
   display: block;
   margin-left: 20%;
