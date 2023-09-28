@@ -16,15 +16,15 @@ padding-bottom: 5px;
 .refreshButton img {
   width: 20px;
 }
-:where(.css-dev-only-do-not-override-18iikkb).ant-input-group {
+:where(.css-18iikkb).ant-input-group {
 width: 75% !important;
 padding-bottom: 5px;
 margin-bottom: 5px
 }
-:where(.css-dev-only-do-not-override-18iikkb).ant-input-lg {
+:where(.css-18iikkb).ant-input-lg {
   padding: 2px 8px;
 }
-:where(.css-dev-only-do-not-override-18iikkb).ant-input-search-large .ant-input-search-button {
+:where(.css-18iikkb).ant-input-search-large .ant-input-search-button {
 height: inherit;
 margin: 0px;
 }
