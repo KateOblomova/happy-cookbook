@@ -60,7 +60,7 @@ console.log(index);
 console.log(window.location.pathname)
 
 let currentId = window.location.pathname;
-currentId = currentId.replace(`/${singleRecipe?.category}/`, "");
+currentId = currentId.replace(`${singleRecipe?.category}`, "");
 const prevIndex = idArray.indexOf(currentId);
 
 console.log(singleRecipe?.category)
