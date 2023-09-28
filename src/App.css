@@ -19,6 +19,12 @@ padding-bottom: 5px;
 .refreshButton {
   margin-bottom: 5px;
 }
+:where(.css-i0102m).ant-space-gap-col-small {
+padding-bottom: 10px; 
+}
+:where(.css-i0102m).ant-space-align-center {
+  align-items: inherit;
+}
 :where(.css-i0102m).ant-input-group {
 width: 75% !important;
 margin-bottom: 5px;

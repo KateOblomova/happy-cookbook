@@ -34,6 +34,21 @@ export default function Recipe() {
   //   (recipe) => recipe.fields.category === singleRecipe?.fields.category
   // );
 
+  const alphabeticiseArray = (arr) => {
+    return arr.sort((a, b) => {
+      const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+  };
+  alphabeticiseArray(recipes);
+
   const extractedID = recipes.filter(
     (recipe) => recipe.category === singleRecipe?.category
   );
@@ -42,10 +57,6 @@ export default function Recipe() {
 
   console.log("Extracted ID after function", idArray);
 
-  console.log("hello ID#1:" + idArray[(idArray.indexOf(id) + 1) % idArray.length])
-  console.log("hello ID#2:" + idArray[(idArray.indexOf(id) + 1) % idArray.length])
-  console.log("hello ID#3:" + idArray[(idArray.indexOf(id) + 1)])
-  console.log("hello ID#3:" + idArray[(idArray.indexOf(id))])
 
   const handleNavigate = (direction) => {
     if (direction === 'prev') {

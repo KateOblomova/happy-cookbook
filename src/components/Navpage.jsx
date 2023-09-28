@@ -46,21 +46,6 @@ export default function Navpage({ searchValue }) {
   path = path.replace("/", "");
   path = capitaliseFirstLetter(path);
 
-  // this comment doesn't say anything
-  // Function to sort arrays from A-Z
-  // const alphabeticiseArray = (arr) => {
-  //   return arr.sort((a, b) => {
-  //     const nameA = a.fields.recipeName.toUpperCase();
-  //     const nameB = b.fields.recipeName.toUpperCase();
-  //     if (nameA < nameB) {
-  //       return -1;
-  //     }
-  //     if (nameA > nameB) {
-  //       return 1;
-  //     }
-  //     return 0;
-  //   });
-  // }; need to uncomment
   const alphabeticiseArray = (arr) => {
     return arr.sort((a, b) => {
       const nameA = a.name.toUpperCase();
