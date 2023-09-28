@@ -46,12 +46,18 @@ export default function Recipe() {
   const handleNavigate = (direction) => {
     if (direction === 'prev') {
       let currentId = window.location.pathname;
-      currentId = currentId.replace(`/${singleRecipe?.category}/`, "");
+      const numericPart = currentId.match(/\d+$/);
+      if (numericPart) {
+        currentId = numericPart[0];
+      }
       const prevIndex = idArray.indexOf(currentId);
       setIndex(() => (prevIndex - 1 + idArray.length) % idArray.length);
     } else if (direction === 'next') {
       let currentId = window.location.pathname;
-      currentId = currentId.replace(`/${singleRecipe?.category}/`, "");
+      const numericPart = currentId.match(/\d+$/);
+      if (numericPart) {
+        currentId = numericPart[0];
+      }
       const prevIndex = idArray.indexOf(currentId);
       setIndex(() => (prevIndex + 1) % idArray.length);
     }
@@ -60,7 +66,10 @@ console.log(index);
 console.log(window.location.pathname)
 
 let currentId = window.location.pathname;
-currentId = currentId.replace(`${singleRecipe?.category}`, "");
+const numericPart = currentId.match(/\d+$/); // Match one or more digits at the end
+if (numericPart) {
+  currentId = numericPart[0];
+}
 const prevIndex = idArray.indexOf(currentId);
 
 console.log(singleRecipe?.category)
