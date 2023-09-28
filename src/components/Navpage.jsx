@@ -25,7 +25,7 @@ export default function Navpage({ searchValue }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
   // Search array
