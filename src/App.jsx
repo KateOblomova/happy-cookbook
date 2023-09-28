@@ -21,7 +21,7 @@ function App() {
   // console.log(recipes);
   const fetching = async () => {
     // const data = await fetch("https://recipes-practise.onrender.com/");
-    const data = await fetch("https://powerfulcookbook-api.onrender.com//");
+    const data = await fetch("https://powerfulcookbook-api.onrender.com");
     const res = await data.json();
     setRecipes(res);
   };
