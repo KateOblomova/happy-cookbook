@@ -78,7 +78,7 @@ export default function Recipe() {
           </ol>
         </div>
       </div>
-      <div style={{backgroundColor: themeStyles.background}} id="buttons">
+      {/* <div style={{backgroundColor: themeStyles.background}} id="buttons">
         <button
           onClick={() =>
             navigate(
@@ -102,6 +102,37 @@ export default function Recipe() {
               }`
             )
           }
+        >
+          ⟶
+        </button>
+      </div> */}
+      <div style={{backgroundColor: themeStyles.background}} id="buttons">
+        <button
+          onClick={() => {
+            const currentIndex = idArray.indexOf(id);
+            const previousIndex = (currentIndex - 1 + idArray.length) % idArray.length;
+            const previousId = idArray[previousIndex];
+            navigate(
+              `/${singleRecipe?.category.toLowerCase()}/${
+                previousId
+              }`
+            )
+          }
+        }
+        >
+          ⟵
+        </button>
+        <button
+          onClick={() => {
+            const currentIndex = idArray.indexOf(id);
+            const nextIndex = (currentIndex + 1) % idArray.length;
+            const nextId = idArray[nextIndex];
+            navigate(
+              `/${singleRecipe?.category.toLowerCase()}/${
+                nextId}`
+            )
+          }
+        }
         >
           ⟶
         </button>
