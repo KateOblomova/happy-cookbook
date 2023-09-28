@@ -15,6 +15,8 @@ padding-bottom: 5px;
 }
 .refreshButton img {
   width: 20px;
+}
+.refreshButton {
   margin-bottom: 5px;
 }
 :where(.css-i0102m).ant-input-group {

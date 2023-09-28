@@ -7,6 +7,7 @@ export default function Recipe() {
   const { id } = useParams();
   const {light, dark, isLightTheme} = useContext(ThemeContext);
   const themeStyles = isLightTheme ? light : dark
+  const [index, setIndex] = useState(0)
 
   //kate
   const [recipes, setRecipes] = useState([]);
@@ -46,6 +47,14 @@ export default function Recipe() {
   console.log("hello ID#3:" + idArray[(idArray.indexOf(id) + 1)])
   console.log("hello ID#3:" + idArray[(idArray.indexOf(id))])
 
+  const handleNavigate = (direction) => {
+    if (direction === 'prev') {
+      setIndex((prevIndex) => (prevIndex - 1 + idArray.length) % idArray.length);
+    } else if (direction === 'next') {
+      setIndex((prevIndex) => (prevIndex + 1) % idArray.length);
+    }
+  };
+console.log(index);
   return (
     <>
       {console.log("Recipe page", { recipes })}
@@ -109,12 +118,10 @@ export default function Recipe() {
       <div style={{backgroundColor: themeStyles.background}} id="buttons">
         <button
           onClick={() => {
-            const currentIndex = idArray.indexOf(id);
-            const previousIndex = (currentIndex - 1 + idArray.length) % idArray.length;
-            const previousId = idArray[previousIndex];
+            handleNavigate('prev');
             navigate(
               `/${singleRecipe?.category.toLowerCase()}/${
-                previousId
+                idArray[index]
               }`
             )
           }
@@ -124,12 +131,9 @@ export default function Recipe() {
         </button>
         <button
           onClick={() => {
-            const currentIndex = idArray.indexOf(id);
-            const nextIndex = (currentIndex + 1) % idArray.length;
-            const nextId = idArray[nextIndex];
+            handleNavigate('next');
             navigate(
-              `/${singleRecipe?.category.toLowerCase()}/${
-                nextId}`
+              `/${singleRecipe?.category.toLowerCase()}/${idArray[index]}`
             )
           }
         }
