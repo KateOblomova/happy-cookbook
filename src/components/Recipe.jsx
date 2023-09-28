@@ -58,6 +58,13 @@ export default function Recipe() {
   };
 console.log(index);
 console.log(window.location.pathname)
+
+let currentId = window.location.pathname;
+currentId = currentId.replace(`/${singleRecipe?.category}/`, "");
+const prevIndex = idArray.indexOf(currentId);
+
+console.log("Current id:" + currentId);
+console.log("Prev id:" + prevIndex);
   return (
     <>
       {console.log("Recipe page", { recipes })}
