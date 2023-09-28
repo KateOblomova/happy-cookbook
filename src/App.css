@@ -1,3 +1,57 @@
+@media screen and (max-width: 800px) {
+.header-container {
+  flex-direction: column;
+}
+.header-container a {
+font-size: 1.5rem !important;
+}
+.header-container img {
+  width: 50px;
+  }
+.lightbulb {
+  font-size: 1.5rem !important;
+}
+.refreshButton img {
+  width: 20px;
+}
+.text-overlay {
+  position: absolute;
+  transform: translate(-50%, -0%) !important;
+  width: 80%;
+  text-align: center;
+  color: whitesmoke;
+  opacity: 80%; /*added*/
+}
+.text-overlay p {
+  font-size: 2.5rem !important;
+}
+.main-section h2 {
+font-size: 0.75rem;
+}
+.main-section p {
+  font-size: 0.6rem;
+  }
+#footer {
+  width: 100% !important;
+}
+.footer-content {
+  display: grid !important;
+}
+.stay-touch h2 {
+  font-size: 2rem !important;
+}
+.stay-touch p {
+  font-size: 1rem !important;
+}
+.input-button {
+  min-width: 200px !important;
+  min-height: 25px !important;
+}
+.submit-button {
+  min-width: 200px !important;
+}
+}
+
 /* STEFAN */
 
 .pictureIngredientsContainer {
