@@ -41,6 +41,9 @@ export default function Recipe() {
 
   console.log("Extracted ID after function", idArray);
 
+  {console.log("hello ID#1:" + idArray[(idArray.indexOf(id) + 1) % idArray.length])}
+  {console.log("hello ID#2:" + idArray[(idArray.indexOf(id) + 1) % idArray.length])}
+
   return (
     <>
       {console.log("Recipe page", { recipes })}

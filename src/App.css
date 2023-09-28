@@ -18,11 +18,10 @@ padding-bottom: 5px;
 }
 :where(.css-i0102m).ant-input-group {
 width: 75% !important;
-padding-bottom: 5px;
 margin-bottom: 5px
 }
 :where(.css-i0102m).ant-input-lg {
-  padding: 2px 8px;
+  padding: 0px 8px;
 }
 :where(.css-i0102m).ant-input-search-large .ant-input-search-button {
 height: inherit;
