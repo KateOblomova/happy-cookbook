@@ -45,11 +45,13 @@ export default function Recipe() {
 
   const handleNavigate = (direction) => {
     if (direction === 'prev') {
-      const currentId = window.location.pathname;
+      let currentId = window.location.pathname;
+      currentId = currentId.replace(`/${singleRecipe?.category}/`, "");
       const prevIndex = idArray.indexOf(currentId);
       setIndex(() => (prevIndex - 1 + idArray.length) % idArray.length);
     } else if (direction === 'next') {
-      const currentId = window.location.pathname;
+      let currentId = window.location.pathname;
+      currentId = currentId.replace(`/${singleRecipe?.category}/`, "");
       const prevIndex = idArray.indexOf(currentId);
       setIndex(() => (prevIndex + 1) % idArray.length);
     }
