@@ -82,6 +82,10 @@ font-size: 0.75rem;
   max-width: 300px !important;
   border-radius: 5%;
 }
+.recipeName {
+  text-align: center;
+  font-size: 35px;
+}
 }
 
 /* STEFAN */

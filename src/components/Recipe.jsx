@@ -34,21 +34,6 @@ export default function Recipe() {
   //   (recipe) => recipe.fields.category === singleRecipe?.fields.category
   // );
 
-  const alphabeticiseArray = (arr) => {
-    return arr.sort((a, b) => {
-      const nameA = a.name.toUpperCase();
-      const nameB = b.name.toUpperCase();
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-      return 0;
-    });
-  };
-  alphabeticiseArray(recipes);
-
   const extractedID = recipes.filter(
     (recipe) => recipe.category === singleRecipe?.category
   );
@@ -60,12 +45,17 @@ export default function Recipe() {
 
   const handleNavigate = (direction) => {
     if (direction === 'prev') {
-      setIndex((prevIndex) => (prevIndex - 1 + idArray.length) % idArray.length);
+      const currentId = window.location.pathname;
+      const prevIndex = idArray.indexOf(currentId);
+      setIndex(() => (prevIndex - 1 + idArray.length) % idArray.length);
     } else if (direction === 'next') {
-      setIndex((prevIndex) => (prevIndex + 1) % idArray.length);
+      const currentId = window.location.pathname;
+      const prevIndex = idArray.indexOf(currentId);
+      setIndex(() => (prevIndex + 1) % idArray.length);
     }
   };
 console.log(index);
+console.log(window.location.pathname)
   return (
     <>
       {console.log("Recipe page", { recipes })}
