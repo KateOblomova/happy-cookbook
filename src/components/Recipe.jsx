@@ -7,7 +7,6 @@ export default function Recipe() {
   const { id } = useParams();
   const {light, dark, isLightTheme} = useContext(ThemeContext);
   const themeStyles = isLightTheme ? light : dark
-  const [index, setIndex] = useState(0)
 
   //kate
   const [recipes, setRecipes] = useState([]);
@@ -42,39 +41,6 @@ export default function Recipe() {
 
   console.log("Extracted ID after function", idArray);
 
-
-  const handleNavigate = (direction) => {
-    if (direction === 'prev') {
-      let currentId = window.location.pathname;
-      const numericPart = currentId.match(/\d+$/);
-      if (numericPart) {
-        currentId = numericPart[0];
-      }
-      const prevIndex = idArray.indexOf(currentId);
-      setIndex(() => (prevIndex - 1 + idArray.length) % idArray.length);
-    } else if (direction === 'next') {
-      let currentId = window.location.pathname;
-      const numericPart = currentId.match(/\d+$/);
-      if (numericPart) {
-        currentId = numericPart[0];
-      }
-      const prevIndex = idArray.indexOf(currentId);
-      setIndex(() => (prevIndex + 1) % idArray.length);
-    }
-  };
-console.log(index);
-console.log(window.location.pathname)
-
-let currentId = window.location.pathname;
-const numericPart = currentId.match(/\d+$/); // Match one or more digits at the end
-if (numericPart) {
-  currentId = numericPart[0];
-}
-const prevIndex = idArray.indexOf(currentId);
-
-console.log(singleRecipe?.category)
-console.log("Current id:" + currentId);
-console.log("Prev id:" + prevIndex);
   return (
     <>
       {console.log("Recipe page", { recipes })}
@@ -107,7 +73,7 @@ console.log("Prev id:" + prevIndex);
           </ol>
         </div>
       </div>
-      {/* <div style={{backgroundColor: themeStyles.background}} id="buttons">
+      <div style={{backgroundColor: themeStyles.background}} id="buttons">
         <button
           onClick={() =>
             navigate(
@@ -131,32 +97,6 @@ console.log("Prev id:" + prevIndex);
               }`
             )
           }
-        >
-          ⟶
-        </button>
-      </div> */}
-      <div style={{backgroundColor: themeStyles.background}} id="buttons">
-        <button
-          onClick={() => {
-            handleNavigate('prev');
-            navigate(
-              `/${singleRecipe?.category.toLowerCase()}/${
-                idArray[index]
-              }`
-            )
-          }
-        }
-        >
-          ⟵
-        </button>
-        <button
-          onClick={() => {
-            handleNavigate('next');
-            navigate(
-              `/${singleRecipe?.category.toLowerCase()}/${idArray[index]}`
-            )
-          }
-        }
         >
           ⟶
         </button>
