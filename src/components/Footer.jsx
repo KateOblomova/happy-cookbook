@@ -8,7 +8,7 @@ export default function Footer() {
   const themeStyles = isLightTheme ? light : dark
     return (
       <>
-       <div class="footer" id="footer" style={{backgroundColor: themeStyles.ui}}>
+       <div className="footer" style={{backgroundColor: themeStyles.ui}}>
                     <div style={{color: themeStyles.text, margin: "0px"}} class="footer-content">
                         <div class="stay-touch">
                          <h2>Stay in Touch</h2>
