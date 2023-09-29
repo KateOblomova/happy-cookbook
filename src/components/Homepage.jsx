@@ -79,7 +79,7 @@ const themeStyles = isLightTheme ? light : dark;
       </div>
       <div style={{backgroundColor: themeStyles.background}} className="homepageCardsContainer">
         <div style={{backgroundColor: themeStyles.cardBackground}} className="cardContainer">
-          <NavLink style={{color: themeStyles.cardText}} to="starter" className="homepageCardsHeader">
+          <NavLink style={{color: themeStyles.cardText, backgroundColor: themeStyles.cardTextBackground}} to="starter" className="homepageCardsHeader">
             Starters{" "}
           </NavLink>
           <img
@@ -88,7 +88,7 @@ const themeStyles = isLightTheme ? light : dark;
           />
         </div>
         <div style={{backgroundColor: themeStyles.cardBackground}} className="cardContainer">
-          <NavLink style={{color: themeStyles.cardText}} to="main" className="homepageCardsHeader">
+          <NavLink style={{color: themeStyles.cardText, backgroundColor: themeStyles.cardTextBackground}} to="main" className="homepageCardsHeader">
             Main Course{" "}
           </NavLink>
           <img
@@ -97,7 +97,7 @@ const themeStyles = isLightTheme ? light : dark;
           />
         </div>
         <div style={{backgroundColor: themeStyles.cardBackground}} className="cardContainer">
-          <NavLink style={{color: themeStyles.cardText}} to="dessert" className="homepageCardsHeader">
+          <NavLink style={{color: themeStyles.cardText, backgroundColor: themeStyles.cardTextBackground}} to="dessert" className="homepageCardsHeader">
             Desserts{" "}
           </NavLink>
           <img
@@ -106,7 +106,7 @@ const themeStyles = isLightTheme ? light : dark;
           />
         </div>
         <div style={{backgroundColor: themeStyles.cardBackground}} className="cardContainer">
-          <NavLink style={{color: themeStyles.cardText}} to="drink" className="homepageCardsHeader">
+          <NavLink style={{color: themeStyles.cardText, backgroundColor: themeStyles.cardTextBackground}} to="drink" className="homepageCardsHeader">
             Drinks
           </NavLink>
           <img

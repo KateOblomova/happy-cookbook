@@ -88,6 +88,11 @@ font-size: 0.75rem;
 }
 }
 
+*::selection {
+  background-color: orange;
+  color: black;
+}
+
 /* STEFAN */
 
 .pictureIngredientsContainer {
